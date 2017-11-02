@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int a,b;
+
+int main(){
+    cin>>a>>b;
+    cout<<"Addition: "<<a+b<<"\n";
+    cout<<"Substraction: "<<a-b<<"\n";;
+    cout<<"Multiplication: "<<a*b<<"\n";;
+    cout<<"Integer division: "<<a/b<<"\n";;
+    cout<<"Real division: "<<(float)a/b<<"\n";;
+    cout<<"Modulus: "<<a%b<<"\n";
+    return 0;
+}

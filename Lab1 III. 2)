@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main(void){
+       int numDollars = 20;
+       int numCents = 7;
+       int stampCost = 39;
+       int numStamps = (numDollars*100+numCents)/39;
+       int change = (numDollars*100+numCents)%39;
+       printf("\n You can purchase %d stamps.", numStamps);
+       printf("\n You will have %d cents remaining.", change);
+ }

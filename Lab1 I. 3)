@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int i;
+char nume[30];
+
+int main(){
+    cin.get(nume,30);
+
+    for(i=0;i<strlen(nume);i++)
+        if(nume[i]>='a' && nume[i]<='z')
+            nume[i]=nume[i]-32;
+
+    cout<<nume<<"\n";
+
+    for(i=0;i<=strlen(nume);i++)
+        if(nume[i]>='A' && nume[i]<='Z')
+            nume[i]=nume[i]+32;
+
+    cout<<nume;
+     return 0;
+}

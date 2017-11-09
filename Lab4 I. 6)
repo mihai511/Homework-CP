@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double hypotenuse1(double side1, double side2){
+    double hypotenuse=sqrt(side1*side1 + side2*side2);
+    return hypotenuse;
+}
+
+void hypotenuse2(double side1, double side2, double* hypotenuse){
+    *hypotenuse=sqrt(side1*side1 + side2*side2);
+}
+
+int main(){
+    double side1;
+    double side2;
+    double hypotenuse;
+
+    printf("Introduce the two sides of the triangle.\n");
+    scanf("%lf %lf", &side1, &side2);
+    
+    hypotenuse=hypotenuse1(side1,side2);
+    printf("The hypotenuse is %lf.\n", hypotenuse);
+    
+    hypotenuse=0;
+    hypotenuse2(side1,side2,&hypotenuse);
+    printf("Using the reference function, the hypotenuse is still %lf.", hypotenuse);
+
+}

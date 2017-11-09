@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+int number;
+int A[10];
+
+void FindMinMax(int A[10], int* min, int* max){
+    int i;
+    *min=A[0];
+    *max=A[0];
+    for(i=0;i<=9;i++){
+        if(A[i]<*min)
+            *min=A[i];
+        if(A[i]>*max)
+            *max=A[i];
+    }
+}
+
+int main(){
+    for(int i=0;i<=9;i++){
+        scanf("%d",&number);
+        A[i]=number;
+    }
+    int min1;
+    int max1;
+    FindMinMax(A,&min1,&max1);
+
+    printf("The minimum is %d and the maximum is %d.",min1,max1);
+}

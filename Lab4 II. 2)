@@ -1,0 +1,33 @@
+#define PI 3,14
+#include <stdio.h>
+#include <math.h>
+
+int polynomial1(int n, int a, int b, int c, int d, int x){
+    int y=a;
+    for(int i=1;i<=2*n;i++)
+        y*=x;
+    y=y+b*x*x+c*x+d;
+    
+    return y;
+}
+
+int polynomial2(int a, int b, int c, int x){
+    int d= (PI*c);
+    double y=a*x*x+b*x+cos(d);
+    return y;
+}
+int main(){
+    int n;
+    int a, b, c, d, x;
+    int y1;
+    double y2;
+    
+    printf("Insert the integer value for n and the decimal values of a, b, c, d, and x.\n");
+    scanf("%i %d %d %d %d %d", &n,&a,&b,&c,&d,&x);
+    
+    y1=polynomial1(n,a,b,c,d,x);
+    printf("y1 este %i\n",y1);
+    
+    y2=polynomial2(a,b,c,x);
+    printf("y2 este %f",y2);
+}

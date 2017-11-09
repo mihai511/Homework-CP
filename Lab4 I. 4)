@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+int n1;
+int n2;
+
+void interchange(int* a, int* b){
+    int aux=*a;
+    *a=*b;
+    *b=aux;
+}
+
+int main(){
+    scanf("%d%d",&n1,&n2);
+    interchange(&n1,&n2);
+    printf("Numerele interschimbate sunt %d si %d", n1, n2);
+}

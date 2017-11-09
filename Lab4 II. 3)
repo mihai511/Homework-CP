@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+int A[32][3];
+int temp_min;
+int temp_max;
+int k;
+
+void average_temp(int B[32][3]){
+    double average_low=0;
+    double average_high=0;
+    int i;
+
+    for(i=1;i<=31;i++){
+        average_low+=B[i][1];
+        average_high+=B[i][2];
+    }
+
+    average_low/=31;
+    average_high/=31;
+    printf("The lowest average temperature is %lf and the highest average temperature is %lf.\n",average_low,average_high);
+}
+
+void highest_and_lowest(int A[32][3]){
+    int highest=A[1][1];
+    int lowest=A[1][2];
+    int i;
+
+    for(i=1;i<=31;i++){
+        if(A[i][1]<lowest)
+            lowest=A[i][1];
+        if(A[i][2]>highest)
+            highest=A[i][2];
+    }
+
+    printf("The lowest temperature of the month is %d and the highest temperature is %d.\n",lowest,highest);
+}
+
+int main(){
+    for(k=1;k<=31;k++){
+        printf("Please introduce the lowest and highest temperature of day no. %d\n",k);
+        scanf("%d %d",&temp_min, &temp_max);
+        A[k][1]=temp_min;
+        A[k][2]=temp_max;
+    }
+
+    average_temp(A);
+    highest_and_lowest(A);
+}

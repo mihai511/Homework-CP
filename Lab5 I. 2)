@@ -1,0 +1,28 @@
+#include <stdio.h>
+int n;
+float A[100];
+float value;
+
+int main(){
+    scanf("%d", &n);
+    
+    int i;
+    
+    for(i=0;i<=n-1;i++){
+        scanf("%f", &value);
+        A[i]=value;
+    }
+    
+    int ok=0;
+    float ratio=A[1]-A[0];
+    
+    for(i=1;i<=n-1;i++)
+        if(A[i]-A[i-1]!=ratio)
+            ok++;
+    
+    if(ok!=0)
+        printf("The  terms  of  the sequence are not in an arithmetical progression.");
+    else
+        printf("The  terms  of  the sequence are in an arithmetical progression and the ratio is %f.", ratio);
+    
+}

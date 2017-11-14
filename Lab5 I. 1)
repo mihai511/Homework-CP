@@ -1,0 +1,23 @@
+#include <stdio.h>
+int n;
+float x[100];
+float value;
+
+int main(){
+    scanf("%d", &n);
+    
+    int i;
+    
+    for(i=0;i<=n-1;i++){
+        scanf("%f", &value);
+        x[i]=value;
+    }
+    
+    int number=0;
+    
+    for(i=1;i<=n-2;i++)
+        if(x[i]==(x[i-1]+x[i+1])/2.0)
+            number++;
+    
+    printf("The number of elements from the vector which are equal to the average value of the neighbor elements is %d.", number);
+}

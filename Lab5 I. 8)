@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+char s[30];
+char * p;
+int v[150];
+
+int main(){
+    gets(s);
+    p=strtok(s," ");
+    
+    int wordCount=0;
+    int i;
+    
+    for(i=97;i<=122;i++)
+        v[i]=0;
+
+    while(p!=NULL){
+        wordCount++;
+        for(i=0;i<=strlen(p)-1;i++)
+            if(p[i]>='a' && p[i]<='z')
+                v[(int)p[i]]++;
+        p=strtok(NULL," ");
+    }
+    
+    printf("Sirul contine %d cuvinte.\n", wordCount);
+    
+    char litera;
+    
+    for(i=97;i<=122;i++){
+        litera=(char)i;
+        printf("Litera %c apare de %d ori.\n", litera, v[i]);
+    }
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+char name[30];
+char *firstName;
+char *lastName;
+int i;
+
+int main(){
+    gets(name);
+    firstName=strtok(name," ");
+    lastName=strtok(NULL," ");
+    
+    printf("%c", firstName[0]);
+    
+    if(strlen(lastName)<=7)
+        printf("%s",lastName);
+    else
+        for(i=0;i<=6;i++)
+            printf("%c",lastName[i]);
+}

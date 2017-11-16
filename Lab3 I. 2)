@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int a[100];
+int i;
+int n;
+int x;
+
+int binarySearch(int x, int v[], int n){
+    int left=0;
+    int right=n-1;
+    while(left<=right){
+        int middle=(left+right)/2;
+        if(v[middle]==x){
+            return middle;
+        }else
+            if(v[middle]>x)
+                right=middle-1;
+            else
+                left=middle+1;
+    }
+    return -1;
+}
+
+int main(){
+    cin>>n;
+    for(i=0;i<=n-1;i++)
+        cin>>a[i];
+    cin>>x;
+
+    cout<<binarySearch(x, a, n);
+}

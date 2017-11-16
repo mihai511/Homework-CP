@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+double a,b,c,m,n,p;
+double X;
+double Y;
+
+int main(){
+    cin>>a>>b>>c>>m>>n>>p;
+
+    if(c==0 && p==0)
+        if(a*n-b*m!=0)
+            cout<<"Sistemul are solutia unica (0,0)";
+        else
+            cout<<"Sistemul are o infinitate de solutii, printre care (0,0)";
+    else{
+        X=(n*c-b*p)/(n*a-b*m);
+        Y=(c-a*X)/b;
+        cout<<"Sistemul are solutia unica ("<<X<<","<<Y<<")";
+    }
+}

@@ -1,0 +1,37 @@
+//recursive version:
+#include <iostream>
+using namespace std;
+int n;
+
+int Fibonacci(int n){
+    if(n==1 || n==2)
+        return 1;
+    else
+        return Fibonacci(n-1)+Fibonacci(n-2);
+}
+int main(){
+    cin>>n;
+    cout<<"Al "<<n<<"-lea termen din sirul lui Fibonacci este "<<Fibonacci(n);
+}
+
+
+//iterative version:
+#include <iostream>
+using namespace std;
+int n;
+
+int Fibonacci(int n){
+    int t1=1;
+    int t2=1;
+    int t;
+    for(int i=3;i<=n;i++){
+         t=t1+t2;
+         t1=t2;
+         t2=t;
+    }
+    return t;
+}
+int main(){
+    cin>>n;
+    cout<<"Al "<<n<<"-lea termen din sirul lui Fibonacci este "<<Fibonacci(n);
+}

@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int A[100];
+int i;
+int minim;
+int maxim;
+int n;
+
+
+int main(){
+    cin>>n;
+    for(i=1;i<=n;i++)
+        cin>>A[i];
+
+    minim=A[1];
+    maxim=A[1];
+
+    for(i=1;i<=n;i++){
+        if(A[i]>maxim)
+            maxim=A[i];
+        if(A[i]<minim)
+            minim=A[i];
+    }
+
+    cout<<minim<<" "<<maxim;
+    return 0;
+
+}

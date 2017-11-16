@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int starting_hour;
+int starting_minute;
+int starting_second;
+int finishing_hour;
+int finishing_minute;
+int finishing_second;
+int time1;
+int time2;
+int time_diference;
+int hour;
+int minute;
+int second;
+
+int main(){
+    cin>>starting_hour;
+    cin>>starting_minute;
+    cin>>starting_second;
+    cin>>finishing_hour;
+    cin>>finishing_minute;
+    cin>>finishing_second;
+
+    time1=3600*starting_hour+ 60*starting_minute+ starting_second;
+    time2=3600*finishing_hour+ 60*finishing_minute+ finishing_second;
+
+    time_diference=time2-time1;
+
+    hour=time_diference/3600;
+    minute=time_diference%3600/60;
+    second=time_diference%3600%60;
+
+    cout<<"The race lasted "<<hour<<":"<<minute<<":"<<second;
+    return 0;
+}

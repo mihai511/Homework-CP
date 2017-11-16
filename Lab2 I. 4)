@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+double nota;
+int nr_stud=0;
+int nr_stud_picati=0;
+int nr_stud_sub8=0;
+int i;
+
+int main(){
+    cin>>nr_stud;
+    for(i=1;i<=nr_stud;i++){
+        cin>>nota;
+        if(nota<5)
+            nr_stud_picati++;
+        if(nota<8)
+            nr_stud_sub8++;
+    }
+
+    if(nr_stud_picati==0)
+        cout<<"Nu a picat niciun student"<<"\n";
+    else
+        cout<<"Nu au trecut toti studentii examenul"<<"\n";
+
+    cout<<"Procentul de studenti cu nota sub 8 este de "<<nr_stud_sub8/(double)nr_stud*100<<"%";
+    return 0;
+}

@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+int x;
+int i;
+int ok=0;
+
+int main(){
+    cin>>x;
+
+    if(x==1)
+        cout<<"Numarul nu este prim";
+    else{
+        for(i=2;i*i<=x;i++)
+            if(x%i==0){
+                ok++;
+                break;
+            }
+
+        if(ok==0)
+            cout<<"Numarul este prim";
+        else
+            cout<<"Numarul nu este prim";
+    }
+    
+    return 0;
+}

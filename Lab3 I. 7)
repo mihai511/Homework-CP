@@ -1,0 +1,15 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int number;
+
+int main(){
+    do{
+        cout<<"Input an integer between 0 and 90."<<"\n";
+        cin>>number;
+
+        if(number<0 || number>90)
+            cout<<"The number introduced is not between 0 and 90."<<"\n";
+
+    }while(number<0 || number>90);
+}

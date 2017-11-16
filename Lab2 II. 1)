@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+int nr_termeni;
+int termen;
+int i;
+int termen_aux;
+int puteri_de_2=0;
+int puteri_de_5=0;
+
+int main(){
+    cin>>nr_termeni;
+
+    for(i=1;i<=nr_termeni;i++){
+        cin>>termen;
+        termen_aux=termen;
+
+        while(termen%2==0)
+            if(termen%2==0){
+                puteri_de_2++;
+                termen=termen/2;
+            }
+
+        while(termen_aux%5==0)
+            if(termen_aux%5==0){
+                puteri_de_5++;
+                termen_aux=termen_aux/5;
+            }
+    }
+
+    if(puteri_de_2<=puteri_de_5)
+        cout<<"Produsul are "<<puteri_de_2<<" zero-uri.";
+    else
+        cout<<"Produsul are "<<puteri_de_5<<" zero-uri.";
+        
+    return 0;
+}

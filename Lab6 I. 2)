@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int strlen_array( char array[] ){
+    int i;
+    int lenght=0;
+    
+    for(i=0;array[i]!=NULL;i++)
+        lenght++;
+        
+    return lenght;    
+}
+
+int strlen_pointer( char *strp ){
+    int i=0;
+    int lenght=0;
+    
+    while(*(strp+i)!=NULL){
+        lenght++;
+        i++;
+    }
+    
+    return lenght;
+}
+
+int main(){
+    char a[100];
+    
+    scanf("%s", a);
+    
+    printf("Folosind prima functie obtinem %d, iar folosind a doua obtinem %d.", strlen_array(a), strlen_pointer(a));
+}

@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+void strcat2(char* s, char t[100]){
+    int i;
+    int marime_initiala=strlen(s);
+    
+    for(i=0;i<strlen(t);i++)
+        *(s+marime_initiala+i)=*(t+i);
+        
+    *(s+marime_initiala+strlen(t))=NULL;
+}
+
+int main(){
+    char s[100];
+    char t[100];
+    
+    scanf("%s", s);
+    scanf("%s", t);
+    
+    strcat2(&s,t);
+    
+    printf("%s", s);
+}

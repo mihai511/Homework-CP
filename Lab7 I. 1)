@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int sequence_length;
+int *s;
+int i;
+
+int main(){
+    scanf ( "%d", &sequence_length );
+
+    s=(int*)malloc(sequence_length*sizeof(int));
+
+    for(i=0;i<sequence_length;i++)
+        scanf("%d",&s[i]);
+
+    for (i=0;i<sequence_length;i++)
+        printf("%d ",s[i]);
+
+}

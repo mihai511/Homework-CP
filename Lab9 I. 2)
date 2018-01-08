@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int binarySearch(int a[], int left, int right, int x){
+   if (right>=left){
+        int mid=left+(right-left)/2;
+ 
+        if (a[mid]==x)  
+            return mid;
+ 
+        if (a[mid]>x) 
+            return binarySearch(a, left, mid-1, x);
+ 
+        return binarySearch(a, mid+1, right, x);
+   }
+ 
+   return -1;
+}
+
+int main(){
+    int array[20];
+    int i;
+    int lenght;
+    int x;
+    
+    printf("Write the lenght of the array and the elements in a sorted manner.\n");
+    
+    scanf("%d", &lenght);
+    
+    for(i=0;i<lenght;i++){
+        scanf("%d", &array[i]);
+    }
+    
+    printf("Write the number to be looked for.\n");
+    
+    scanf("%d", &x);
+    
+    if( binarySearch(array, 0, lenght-1, x)!=-1 )
+        printf("The number appears on the position %d", binarySearch(array, 0, lenght-1, x));
+    else
+        printf("The number is not present in the array.");
+    
+}

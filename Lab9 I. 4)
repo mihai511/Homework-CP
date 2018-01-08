@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void bubbleSort(int a[], int n){
+    if (n == 1)
+        return;
+    
+    int aux;
+    for (int i=0;i<n-1;i++)
+        if (a[i]>a[i+1]){
+            aux=a[i];
+            a[i]=a[i+1];
+            a[i+1]=aux;
+        }
+        
+    bubbleSort(a,n-1);
+}
+
+
+int main(){
+    int array[10];
+    int i;
+    int lenght;
+    
+    printf("Write the lenght of the array and the elements.\n");
+    
+    scanf("%d", &lenght);
+    
+    for(i=0;i<lenght;i++){
+        scanf("%d", &array[i]);
+    }
+    
+    bubbleSort(array,lenght);
+    
+    for(i=0;i<lenght;i++){
+        printf("%d ", array[i]);
+    }
+    
+}

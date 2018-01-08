@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void shellSort(int a[], int lenght){
+    int i;
+    int j;
+    int k;
+    int aux;
+    
+    for(i=lenght/2;i>0;i=i/2){
+        for (j=i;j<lenght;j++){
+            for(k=j-i;k>=0;k=k-i){
+                if(a[k+i]>=a[k])
+                    break;
+                else{
+                    aux=a[k];
+                    a[k]=a[k+i];
+                    a[k+i]=aux;
+                }
+            }
+        }
+    }
+    
+}
+
+int main(){
+    int array[20];
+    int i;
+    int lenght;
+    
+    printf("Write the lenght of the array and the elements.\n");
+    
+    scanf("%d", &lenght);
+    
+    for(i=0;i<lenght;i++){
+        scanf("%d", &array[i]);
+    }
+    
+    shellSort(array, lenght);
+    
+    for(i=0;i<lenght;i++){
+        printf("%d ", array[i]);
+    }
+}

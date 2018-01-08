@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+void push(struct Node** head_ref, int new_data){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+ 
+    new_node->data=new_data;
+ 
+    new_node->next=(*head_ref);
+ 
+    (*head_ref)=new_node;
+}
+ 
+void DeleteList(struct Node** head_ref){
+    struct Node* p=*head_ref;
+    struct Node* next;
+    while(p!=NULL){
+        next=p->next; 
+        free(p); 
+        p=next; 
+    }
+    *head_ref = NULL;
+}
+
+int main(){
+    struct Node* head=NULL;
+
+    push(&head,9);
+    push(&head,6);
+    push(&head,0);
+    push(&head,2);
+    push(&head,4);
+    
+    DeleteList(&head);
+}

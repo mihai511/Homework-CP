@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+void push(struct Node** head_ref, int new_data){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+
+    new_node->data=new_data;
+
+    new_node->next=(*head_ref);
+
+    (*head_ref)=new_node;
+}
+
+int sum(struct Node* head){
+    struct Node* p=head;
+    int S=0;
+
+    while (p!=NULL){
+        S=S+p->data;
+        p=p->next;
+    }
+
+    return S;
+}
+int main(){
+    struct Node* head=NULL;
+
+    push(&head,13);
+    push(&head,8);
+    push(&head,5);
+    push(&head,3);
+    push(&head,2);
+    push(&head,1);
+    push(&head,1);
+
+    printf("The sum of all the elements in the list is %d.", sum(head));
+}

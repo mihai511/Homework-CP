@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+void push(struct Node** head_ref, int new_data){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+
+    new_node->data=new_data;
+
+    new_node->next=(*head_ref);
+
+    (*head_ref)=new_node;
+}
+
+void showList(struct Node* head){
+    struct Node* p = head;
+
+    while(p!=NULL){
+    	printf("%d ", p->data);
+    	p=p->next;
+    }
+
+    printf("\n");
+}
+
+void InsertNth(struct Node** head, int position, int data){
+    struct Node* p=head;
+    int i;
+
+    for(i=1;i<position-1;i++)
+        p=p->next;
+    struct Node* aux=p->next;
+
+    struct Node* q=(struct Node*)malloc(sizeof(struct Node));
+    q->data=data;
+    q->next=aux;
+
+    p->next=q;
+}
+
+int main(){
+    struct Node* head=NULL;
+
+    push(&head,13);
+    push(&head,8);
+    push(&head,5);
+    push(&head,3);
+    push(&head,2);
+    push(&head,1);
+    push(&head,1);
+
+    int position;
+    int value;
+
+    printf("Write the position and the value to be inserted on specified position. \n");
+    scanf("%d %d", &position, &value);
+
+    if(position==1){
+        struct Node* q=(struct Node*)malloc(sizeof(struct Node));
+        q->data=value;
+        q->next=head;
+        head=q;
+    }else
+        InsertNth(head,position,value);
+
+    showList(head);
+}

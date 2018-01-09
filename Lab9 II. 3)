@@ -9,7 +9,7 @@ void swap(int* a, int* b){
  
 int partition (int a[], int low, int high){
     int pivot=a[high];   
-    int i=(low - 1);
+    int i=(low-1);
     
     for (int j = low; j <= high- 1; j++){
         if (a[j]<=pivot){
@@ -18,13 +18,12 @@ int partition (int a[], int low, int high){
         }
     }
     
-    swap(&a[i + 1], &a[high]);
+    swap(&a[i+1], &a[high]);
     return (i+1);
 }
  
 
-void quickSort(int a[], int low, int high)
-{
+void quickSort(int a[], int low, int high){
     if(low<high){
         int part=partition(a, low, high);
  
@@ -34,12 +33,11 @@ void quickSort(int a[], int low, int high)
 }
  
 
-void printArray(int arr[], int size)
-{
+void printArray(int arr[], int size){
     int i;
-    for (i=0; i < size; i++)
+    for (i=0;i<size;i++)
         printf("%d ", arr[i]);
-    printf("n");
+    printf("\n");
 }
  
 

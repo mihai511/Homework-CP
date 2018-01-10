@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int number;
+
+struct Node{
+    char data;
+    struct Node* next;
+};
+
+struct Node* push(struct Node* head, char data){
+    struct Node* aux=(struct Node*)malloc(sizeof(struct Node));
+    aux->data=data;
+    aux->next=NULL;
+
+    if(head==NULL)
+        head=aux;
+    else{
+        struct Node* aux2=head;
+        while(aux2->next!=NULL)
+            aux2=aux2->next;
+        aux2->next=aux;
+    }
+
+    return head;
+ }
+
+struct Node* writeList(struct Node* head){
+    char data;
+    int i;
+
+    printf("Write the elements of the list.\n");
+
+    for(i=0; i<number; i++){
+        scanf(" %c",&data);
+        head=push(head, data);
+    }
+
+    return head;
+ }
+
+void showList(struct Node* head){
+    if(head==NULL)
+        return;
+    else{
+        printf("%c ",head->data);
+        showList(head->next);
+    }
+}
+
+struct Node* reverseList(struct Node* head1,struct Node* head2){
+    struct Node* aux=head1;
+    int i;
+
+    if(number-1>=1){
+        for(i=0;i<number-1;i++)
+            aux=aux->next;
+
+        head2=push(head2,aux->data);
+        number--;
+
+        return reverseList(head1,head2);
+    }else{
+        head2=push(head2,aux->data);
+        return head2;
+    }
+}
+
+int main(){
+    printf("Insert the number of elements of the list.\n");
+    scanf("%d", &number);
+
+    struct Node* head1=NULL;
+    struct Node* head2=NULL;
+
+    head1=writeList(head1);
+
+    head2=reverseList(head1,head2);
+
+    printf("The reversed list is:\n");
+    showList(head2);
+}

@@ -13,9 +13,11 @@ int LineCounter(char* file_name){
     while((ch=fgetc(fp))!=EOF)
         if(ch=='\n')
             number_of_lines++;
-
+            
+    fclose(fp);
     return number_of_lines;
 }
+
 int main(){
     char s[]="file1.txt";
 

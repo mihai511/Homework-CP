@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int LineCounter(char* file_name){
+    FILE* fp;
+    fp=fopen(file_name, "r");
+
+    int number_of_lines;
+    number_of_lines=0;
+    char ch;
+
+    while((ch=fgetc(fp))!=EOF)
+        if(ch=='\n')
+            number_of_lines++;
+
+    return number_of_lines;
+}
+int main(){
+    char s[]="file1.txt";
+
+    printf("The file contains %d lines.", LineCounter(s));
+}

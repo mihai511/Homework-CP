@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int CharacterCounter(char* file_name){
+    FILE* fp;
+    fp=fopen(file_name, "r");
+
+    int number_of_characters;
+    number_of_characters=0;
+    char ch;
+
+    while((ch=fgetc(fp))!=EOF)
+            number_of_characters++;
+    
+    fclose(fp);
+    return number_of_characters;
+}
+
+int main(){
+    char s[]="file1.txt";
+
+    printf("The file contains %d characters.", CharacterCounter(s));
+}

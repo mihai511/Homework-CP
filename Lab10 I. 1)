@@ -1,0 +1,18 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<ctype.h>
+
+int main(){
+      FILE* fp1;
+      FILE* fp2;
+      char ch;
+
+      fp1=fopen("file1.txt", "r");
+      fp2=fopen("file2.txt", "w");
+
+      while((ch=fgetc(fp1))!=EOF){
+            ch=toupper(ch);
+            fputc(ch,fp2);
+      }
+
+}

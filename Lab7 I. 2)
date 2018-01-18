@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node1{
+    int data;
+    struct Node1* next;
+};
+
+struct Node2{
+    int data;
+    struct Node2* prev;
+    struct Node2* next;
+};
+
+void push1(struct Node1** head_ref, int new_data){
+    struct Node1* new_node=(struct Node1*)malloc(sizeof(struct Node1));
+
+    new_node->data=new_data;
+
+    new_node->next=(*head_ref);
+
+    (*head_ref)=new_node;
+}
+
+void push2(struct Node2** head_ref, int data){
+    struct Node2* new_node=(struct Node2*)malloc(sizeof(struct Node2));
+
+    new_node->data=data;
+
+    new_node->next=(*head_ref);
+
+    new_node->prev=NULL;
+
+    if((*head_ref)!=NULL)
+      (*head_ref)->prev=new_node;
+
+    (*head_ref)=new_node;
+}
+void showList1(struct Node1* head){
+    struct Node1* p=head;
+
+    while(p!=NULL){
+    	printf("%d ", p->data);
+    	p=p->next;
+    }
+
+    printf("\n");
+}
+
+void showList2(struct Node2* head){
+    struct Node2* p=head;
+
+    while(p!=NULL){
+    	printf("%d ", p->data);
+    	p=p->next;
+    }
+
+    printf("\n");
+}
+
+int main(){
+    struct Node1* head1=NULL;
+
+    push1(&head1,9);
+    push1(&head1,6);
+    push1(&head1,0);
+    push1(&head1,2);
+    push1(&head1,4);
+
+    struct Node2* head2=NULL;
+
+    push2(&head2,7);
+    push2(&head2,3);
+    push2(&head2,3);
+    push2(&head2,1);
+
+    printf("The simply linked list we have created is:\n");
+    showList1(head1);
+
+    printf("The doubly linked list we have created is:\n");
+    showList2(head2);
+}

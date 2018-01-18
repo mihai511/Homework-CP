@@ -1,0 +1,11 @@
+def interchange(a, b):
+  aux=a
+  a=b
+  b=aux
+  print(a)
+  print(b)
+  
+a=input('Input the first number: ')
+b=input('Input the second number: ')
+
+interchange(a,b)

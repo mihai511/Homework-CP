@@ -1,0 +1,53 @@
+#include <stdlib.h>
+#include <time.h>
+
+struct Node{
+    int data;
+    struct Node* next;
+};
+
+int push_random(struct Node** head_ref){
+    struct Node* new_node=(struct Node*)malloc(sizeof(struct Node));
+
+    int r;
+    r=rand()%100;
+
+    new_node->data=r;
+
+    new_node->next=(*head_ref);
+
+    (*head_ref)=new_node;
+
+    return r;
+}
+
+void showList(struct Node* head){
+    struct Node* p = head;
+
+    while(p!=NULL){
+    	printf("%d ", p->data);
+    	p=p->next;
+    }
+
+    printf("\n");
+}
+
+int main(){
+    struct Node* head=NULL;
+
+    srand(time(NULL));
+
+    int i;
+    int sum;
+    sum=0;
+
+    for(i=1;i<=25;i++)
+        sum=sum+push_random(&head);
+
+    float average;
+    average=sum/25.0;
+
+    printf("The randomly generated list is:\n");
+    showList(head);
+    printf("\nThe sum of the elements is %d and the average is %2.2f .", sum, average);
+}

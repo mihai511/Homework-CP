@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char line[15];
+char c;
+int l;
+int top=-1;
+
+
+void push(char ch){
+    top++;
+    line[top]=ch;
+}
+
+void pop(){
+    top--;
+}
+
+char showChar(){
+    return line[top];
+}
+
+int main(){
+    printf("Insert the length of the line:\n");
+
+    scanf("%d", &l);
+
+    printf("\nWrite the line:\n");
+
+    do{
+        scanf("%c", &c);
+        push(c);
+    }while(top<l);
+
+    printf("\nThe string reversed is:\n");
+
+    while(top!=-1){
+        printf("%c" ,showChar());
+        pop();
+    }
+
+}
